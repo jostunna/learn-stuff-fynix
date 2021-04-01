@@ -1,0 +1,31 @@
+const { MongoMemoryServer } = require("mongodb-memory-server");
+const { MongoClient } = require("mongodb");
+const data = require("./data");
+
+let database = null;
+
+const mongo = new MongoMemoryServer();
+
+async function startDatabase() {
+  const mongoDBURL = await mongo.getConnectionString();
+  const connection = await MongoClient.connect(mongoDBURL, {
+    userNewParser: true,
+  });
+
+  // seed database
+  if (!database) {
+    database = connection.db();
+    await database.collection("users").insertMany(data.Users);
+  }
+
+  return database;
+}
+
+async function stopDatabase() {
+  await mongo.stop();
+}
+
+module.exports = {
+  startDatabase,
+  stopDatabase,
+};
