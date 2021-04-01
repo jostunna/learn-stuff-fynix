@@ -7,7 +7,7 @@ let database = null;
 const mongo = new MongoMemoryServer();
 
 async function startDatabase() {
-  const mongoDBURL = await mongo.getConnectionString();
+  const mongoDBURL = await mongo.getUri();
   const connection = await MongoClient.connect(mongoDBURL, {
     userNewParser: true,
   });
