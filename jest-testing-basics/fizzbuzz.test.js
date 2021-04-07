@@ -11,3 +11,11 @@ test("should return Buzz", () => {
 test("should return 4", () => {
   expect(fizzbuzz(4)).toBe(4);
 });
+
+test("should return FizzBuzz", () => {
+  expect(fizzbuzz(15)).toBe("FizzBuzz");
+});
+
+test("should return undefined", () => {
+  expect(fizzbuzz()).toBeUndefined();
+});
