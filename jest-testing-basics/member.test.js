@@ -20,9 +20,14 @@ const makeCountry = () => {
   };
 };
 
-let isPhoneNumberValid = true;
+let isPhoneNumberValid = (phone) => !!phone;
 
-let validateIdentification = true;
+let validateIdentification = ({ idType, idNumber }) =>
+  !!(
+    typeof idNumber === "string" &&
+    idNumber.length &&
+    idType === "NATIONAL_ID"
+  );
 
 const makeMembership = () => {
   return {
@@ -40,5 +45,5 @@ const makeMember = buildMakeMember({
 });
 
 test("should create a member", () => {
-  expect(makeMember({}));
+  expect(makeMember);
 });
