@@ -47,5 +47,9 @@ const makeMember = buildMakeMember({
 });
 
 test("should expect a value", () => {
-  expect(() => makeMember()).toEqual(expect.anything());
+  expect(makeMember()).toEqual(expect.anything());
+});
+
+test("should expect an object", () => {
+  expect(typeof makeMember()).toBe("object");
 });
