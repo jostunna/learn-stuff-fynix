@@ -1,22 +1,24 @@
 const buildMakeMember = require("./member");
 
-const Id = () => {
-  return {
-    makeId: () => "123abc",
-    isValid: true,
-  };
+const Id = {
+  makeId: () => Math.floor(Math.random() * 10),
+  isValidId: (hash) => !!hash,
+};
+
+const country = {
+  name: "Uganda",
+  dial_code: "+256",
+  code: "UG",
 };
 
 const makeCountry = () => {
   return {
-    getCountryByCode: () => {
-      return {
-        name: "Uganda",
-        dial_code: "+256",
-        code: "UG",
-      };
+    getCountryByCountryCode: (countryCode) => {
+      return countryCode == country.code
+        ? country
+        : "Country code doesnt exist";
     },
-    isValidCountry: true,
+    isValidCountry: (countryCode) => !!(countryCode == country.code),
   };
 };
 
@@ -31,8 +33,8 @@ let validateIdentification = ({ idType, idNumber }) =>
 
 const makeMembership = () => {
   return {
-    makeMembershipId: () => "FX+256id123abc",
-    isValidMembershipId: true,
+    makeMembershipId: (countryCode) => "FX" + `${countryCode}` + "12345",
+    isValidMembershipId: (membershipId) => !!membershipId,
   };
 };
 
@@ -44,6 +46,6 @@ const makeMember = buildMakeMember({
   makeMembership,
 });
 
-test("should create a member", () => {
-  expect(makeMember);
+test("should expect a value", () => {
+  expect(() => makeMember()).toEqual(expect.anything());
 });

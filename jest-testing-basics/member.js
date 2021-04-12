@@ -18,7 +18,7 @@ function buildMakeMember({
     relationshipWithMember = "father",
     nextOfKinIdType = "NATIONAL_ID",
     nextOfKinIdNumber = "123456",
-    nextOfKinPhone,
+    nextOfKinPhone = "+256770830540",
     createdAt = new Date(),
     updatedAt = new Date(),
   } = {}) {
