@@ -211,3 +211,71 @@ test("should throw at nextOfKinPhone", () => {
     )
   );
 });
+
+test("should throw at validateIdentification", () => {
+  let userHash = Id.makeId();
+  let admin = true;
+  let userProfileId = 123;
+  let userCountryCode = "UG";
+  let userOccupation = "farmer";
+  let userRelationshipWithMember = "father";
+  let userNextOfKinFirstName = "Joel";
+  let userNextOfKinLastName = "Nsubuga";
+  let userNextOfKinPhone = "+256770830540";
+  let userNextOfKinIdType = "";
+  let userNextOfKinIdNumber = "123456";
+
+  expect(() =>
+    makeMember({
+      hash: userHash,
+      isAdmin: admin,
+      profileId: userProfileId,
+      countryCode: userCountryCode,
+      occupation: userOccupation,
+      relationshipWithMember: userRelationshipWithMember,
+      nextOfKinFirstName: userNextOfKinFirstName,
+      nextOfKinLastName: userNextOfKinLastName,
+      nextOfKinPhone: userNextOfKinPhone,
+      nextOfKinIdType: userNextOfKinIdType,
+      nextOfKinIdNumber: userNextOfKinIdNumber,
+    })
+  ).toThrowError(
+    new Error(
+      "Could not verify universal identification records for next of kin."
+    )
+  );
+});
+
+test("should throw at validateIdentification", () => {
+  let userHash = Id.makeId();
+  let admin = true;
+  let userProfileId = 123;
+  let userCountryCode = "UG";
+  let userOccupation = "farmer";
+  let userRelationshipWithMember = "father";
+  let userNextOfKinFirstName = "Joel";
+  let userNextOfKinLastName = "Nsubuga";
+  let userNextOfKinPhone = "+256770830540";
+  let userNextOfKinIdType = "NATIONAL_ID";
+  let userNextOfKinIdNumber = "";
+
+  expect(() =>
+    makeMember({
+      hash: userHash,
+      isAdmin: admin,
+      profileId: userProfileId,
+      countryCode: userCountryCode,
+      occupation: userOccupation,
+      relationshipWithMember: userRelationshipWithMember,
+      nextOfKinFirstName: userNextOfKinFirstName,
+      nextOfKinLastName: userNextOfKinLastName,
+      nextOfKinPhone: userNextOfKinPhone,
+      nextOfKinIdType: userNextOfKinIdType,
+      nextOfKinIdNumber: userNextOfKinIdNumber,
+    })
+  ).toThrowError(
+    new Error(
+      "Could not verify universal identification records for next of kin."
+    )
+  );
+});
