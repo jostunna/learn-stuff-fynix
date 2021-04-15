@@ -55,7 +55,7 @@ const create4DigitPIN = () => Math.floor(1000 + Math.random() * 9000);
 
 const makeHash = function (password) {
   password = "iehncosoan390afoiohajjjajwko2";
-  hashedPassword = password;
+  const hashedPassword = password;
   return hashedPassword;
 };
 
