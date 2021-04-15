@@ -22,4 +22,15 @@ test("should create profile", async () => {
   });
 
   expect(typeof profile).toBe("object");
+  expect(profile.getId()).toBe(2);
+  expect(profile.getFirstName()).toBe("Joel");
+  expect(profile.getLastName()).toBe("Nsubuga");
+  expect(profile.getGender()).toBe("MALE");
+  expect(profile.getUserType()).toBe("MEMBER");
+  expect(profile.getCountryName()).toBe("Uganda");
+  expect(profile.getProfilePic()).toBe(null);
+  expect(profile.getPhoneNumber()).toBe("0770856876");
+  expect(profile.getIdType()).toBe("REFUGEE_ID");
+  expect(profile.getIdNumber()).toBe("2");
+  expect(profile.isVerified()).toBe(false);
 });
