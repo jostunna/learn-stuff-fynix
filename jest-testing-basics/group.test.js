@@ -62,3 +62,7 @@ test("should create group", () => {
   expect(group.getOrganisationId()).toBe(34);
   expect(group.isActive()).toBe(true);
 });
+
+test("should throw", () => {
+  expect(() => makeGroup()).toThrowError();
+});
