@@ -42,4 +42,23 @@ test("should create group", () => {
   });
 
   expect(typeof group).toBe("object");
+
+  expect(group.getId()).toBe(2);
+  expect(group.getName()).toBe("abalimi");
+  expect(group.getPurpose()).toBe("saving");
+  expect(group.getAddress()).toBe("kiryandongo");
+  expect(group.getAlreadyOperating()).toBe(false);
+  expect(group.getMeetingFrequency()).toBe(3);
+  expect(group.getSharePrice()).toBe(300000);
+  expect(group.getMinShare()).toBe(100000);
+  expect(group.getMaxShare()).toBe(500000);
+  expect(group.getLoanMinShares()).toBe(20000);
+  expect(group.getLoanMonthlyInterest()).toBe(0.05);
+  expect(group.getLoanLendingLimit()).toBe(5);
+  expect(group.getLoanMaxDuration()).toBe(4);
+  expect(group.getEmmContAmt()).toBe(10000);
+  expect(group.getEmmFrequency()).toBe(5);
+  expect(group.getFinesDestination()).toBe("emmergencies");
+  expect(group.getOrganisationId()).toBe(34);
+  expect(group.isActive()).toBe(true);
 });
