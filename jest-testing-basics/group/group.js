@@ -1,13 +1,4 @@
-const Id = {
-  makeId: () => "ie99whlihgoaijcnoijkloaiuuid",
-  isValidId: (hash) => !!hash,
-};
-
-const isValidDate = function (dateString) {
-  return typeof dateString == "string";
-};
-
-function buildMakeGroup({ Id, isValidDate }) {
+export default function buildMakeGroup({ Id, isValidDate }) {
   return function makeGroup({
     id = null,
     name,
@@ -152,10 +143,3 @@ function buildMakeGroup({ Id, isValidDate }) {
     });
   };
 }
-
-const makeGroup = buildMakeGroup({
-  Id,
-  isValidDate,
-});
-
-export default makeGroup;
